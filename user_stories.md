@@ -14,7 +14,6 @@ User 2: “I bought a PS1 on eBay but I was given a bum AV cable. The seller is 
 
 User 3: “I found an old GameCube in the back of my closet. It works great, but my dog chewed through the display cord and my younger cousin broke my old tv by throwing the remote at the screen. Since I need to update my tv, I’ll need a new display cable with an HDMI adapter, as my new tv won’t have the inputs required.”
 
-BONUS?
 User 4: “I need to purchase new cables for my PS2. I want to test on one of the in-store TVs, so I need to choose my local store, submit an appointment form, and receive a confirmation on the page that my appointment was scheduled. 
 
 Site pages:
