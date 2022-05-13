@@ -12,5 +12,5 @@ const servicesSchema = new Schema ({
     details: String,
 })
 
-const products = mongoose.model('services', servicesSchema)
+const services = mongoose.model('services', servicesSchema)
 module.exports = services

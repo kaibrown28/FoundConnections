@@ -15,9 +15,9 @@ const PORT = process.env.PORT || 3003;
 
 /////
 //Schemas and Seeds
-const servicesSchema = require('./models/services')
+const services = require('./models/services')
 const servicesSeed = require('./models/servicesSeed')
-const productsSchema = require('./models/products')
+const products = require('./models/products')
 const productsSeed = require('./models/productsSeed')
 
 //___________________
