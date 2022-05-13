@@ -13,6 +13,13 @@ require('dotenv').config()
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3003;
 
+/////
+//Schemas and Seeds
+const servicesSchema = require('/services')
+const servicesSeed = require('/servicesSeed')
+const productsSchema = require('/products')
+const productsSeed = require('/productsSeed')
+
 //___________________
 //Database
 //___________________
