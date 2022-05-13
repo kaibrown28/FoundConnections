@@ -59,7 +59,7 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //products routes
 //route shops to sub pages, route sub pages to checkout, make checkout delete things
 app.get('/' , (req, res) => {
-  res.redirect('/index.ejs');
+  res.render('/index.ejs');
 });
 
 app.get('/services/appointments', (req,res)=>{
