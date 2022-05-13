@@ -15,10 +15,10 @@ const PORT = process.env.PORT || 3003;
 
 /////
 //Schemas and Seeds
-const servicesSchema = require('/services')
-const servicesSeed = require('/servicesSeed')
-const productsSchema = require('/products')
-const productsSeed = require('/productsSeed')
+const servicesSchema = require('./models/services')
+const servicesSeed = require('./models/servicesSeed')
+const productsSchema = require('./models/products')
+const productsSeed = require('./models/productsSeed')
 
 //___________________
 //Database
@@ -55,9 +55,19 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
+
+//products routes
+app.get('/index' , (req, res) => {
   res.send('Hello World!');
 });
+
+//services routes
+
+
+
+//other routes
+
+
 
 //___________________
 //Listener
