@@ -57,12 +57,24 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //localhost:3000
 
 //products routes
-app.get('/index' , (req, res) => {
-  res.send('Hello World!');
+//route shops to sub pages, route sub pages to checkout, make checkout delete things
+app.get('/' , (req, res) => {
+  res.redirect('/index.ejs');
 });
 
-//services routes
+app.get('/services/appointments', (req,res)=>{
+  res.render('appointments.ejs')
+})
 
+
+//services routes
+app.get('/services/appointments', (req,res)=>{
+  res.render('appointments.ejs')
+})
+
+app.get('/services/checkOrder', (req,res)=>{
+  res.render('checkOrder.ejs')
+})
 
 
 //other routes
