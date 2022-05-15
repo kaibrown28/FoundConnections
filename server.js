@@ -64,9 +64,11 @@ app.get('/' , (req, res) => {
   })
 });
 
-app.get('/services/appointments', (req,res)=>{
-  res.render('appointments.ejs')
-})
+app.get('/views/appointments', (req,res)=>{
+  res.render('appointments.ejs', {
+    tabTitle: "Appointments"
+  })
+});
 
 
 //services routes
