@@ -5,9 +5,10 @@ const products = require('../models/products')
 
 // EDIT => GET
 productsRouter.get('/products/:id/edit', (req, res) => {
-    Data.findById(req.params.id, (err, allProducts) => {
+    products.findById(req.params.id, (err, allProducts) => {
         res.render('edit.ejs', {
-            products : allProducts
+            products : allProducts,
+            tabTitle: "Edit an Appointment"
         });
     });
 });
@@ -15,12 +16,48 @@ productsRouter.get('/products/:id/edit', (req, res) => {
 //INDEX
 
 productsRouter.get('/products', (req, res) => {
-  Data.find({}, (error, allProducts) => {
-         res.render('shop.ejs', {
-             data: allProducts
+  products.find({}, (error, allProducts) => {
+         res.render('showProducts.ejs', {
+             products: allProducts,
+             tabTitle: "All Products"
          });
      })
  });
+
+ //SHOP ROUTES
+productsRouter.get('/atari', (req, res) => {
+  products.find({}, (error, atariProducts) => {
+         res.render('atari.ejs', {
+             products: atariProducts,
+             tabTitle: "Atari"
+         });
+     })
+ });
+productsRouter.get('/nintendo', (req, res) => {
+  products.find({}, (error, nintendoProducts) => {
+         res.render('nintendo.ejs', {
+             products: nintendoProducts,
+             tabTitle: "Nintendo"
+         });
+     })
+ });
+productsRouter.get('/sega', (req, res) => {
+  products.find({}, (error, segaProducts) => {
+         res.render('sega.ejs', {
+             products: segaProducts,
+             tabTitle: "Sega"
+         });
+     })
+ });
+productsRouter.get('/sony', (req, res) => {
+  products.find({}, (error, sonyProducts) => {
+         res.render('sony.ejs', {
+             products: sonyProducts,
+             tabTitle: "Sony"
+         });
+     })
+ });
+
 
  //NEW
  productsRouter.get('/products/new', (req, res) => {
@@ -30,22 +67,22 @@ productsRouter.get('/products', (req, res) => {
 
 //SHOW
  productsRouter.get('/products/:id', (req, res) => {
- Data.findById(req.params.id, (error, character) => {
-     res.render('show.ejs',
+ products.findById(req.params.id, (error, character) => {
+     res.render('showProducts.ejs',
      {list: character})
  })
  })
 
 //POST
 productsRouter.post('/products', (req, res) => {
-  Data.create(req.body, (error, createdBottom) => {
+  products.create(req.body, (error, createdBottom) => {
     res.redirect('/products')
   })
 })
 
  // UPDATE => PUT
  productsRouter.put('/products/:id', (req, res)=>{
-     Data.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+     products.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
          // console.log(req.body)
          // res.send(updatedModel);
          res.redirect('/products');
@@ -55,7 +92,7 @@ productsRouter.post('/products', (req, res) => {
 
  // DESTROY => DELETE
  productsRouter.delete('/products/:id', (req, res) => {
-     Data.findByIdAndRemove(req.params.id, (err, data)=> {
+     products.findByIdAndRemove(req.params.id, (err, products)=> {
          res.redirect('/products');
      });
  });

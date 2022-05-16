@@ -5,7 +5,7 @@ const services = require('../models/services')
 
 // EDIT => GET
 servicesRouter.get('/services/:id/edit', (req, res) => {
-    Data.findById(req.params.id, (err, editService) => {
+    services.findById(req.params.id, (err, editService) => {
         res.render('edit.ejs', {
             services : editService
         });
@@ -15,9 +15,10 @@ servicesRouter.get('/services/:id/edit', (req, res) => {
 //INDEX
 
 servicesRouter.get('/services', (req, res) => {
-  Data.find({}, (error, services) => {
+  services.find({}, (error, services) => {
          res.render('appointments.ejs', {
-             services: allServices
+             services: allServices,
+             tabTitle: "Make an Appointment",
          });
      })
  });
@@ -30,7 +31,7 @@ servicesRouter.get('/services', (req, res) => {
 
 //SHOW
  servicesRouter.get('/services/:id', (req, res) => {
- Data.findById(req.params.id, (error, character) => {
+ services.findById(req.params.id, (error, character) => {
      res.render('checkOrder.ejs',
      {list: character})
  })
@@ -38,14 +39,14 @@ servicesRouter.get('/services', (req, res) => {
 
 //POST
 servicesRouter.post('/services', (req, res) => {
-  Data.create(req.body, (error, createdService) => {
+  services.create(req.body, (error, createdService) => {
     res.redirect('/services')
   })
 })
 
  // UPDATE => PUT
  servicesRouter.put('/services/:id', (req, res)=>{
-     Data.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedAppointment)=>{
+     services.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedAppointment)=>{
          // console.log(req.body)
          // res.send(updatedModel);
          res.redirect('/appointments');
@@ -55,7 +56,7 @@ servicesRouter.post('/services', (req, res) => {
 
  // DESTROY => DELETE
  servicesRouter.delete('/services/:id', (req, res) => {
-     Data.findByIdAndRemove(req.params.id, (err, data)=> {
+     services.findByIdAndRemove(req.params.id, (err, services)=> {
          res.redirect('/services');
      });
  });
