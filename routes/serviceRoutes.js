@@ -3,62 +3,62 @@ const express =  require('express')
 const servicesRouter = express.Router();
 const services = require('../models/services')
 
-// // EDIT => GET
-// app.get('/spongebob/:id/edit', (req, res) => {
-//     Data.findById(req.params.id, (err, bikBottom) => {
-//         res.render('edit.ejs', {
-//             data : bikBottom
-//         });
-//     });
-// });
+// EDIT => GET
+servicesRouter.get('/services/:id/edit', (req, res) => {
+    Data.findById(req.params.id, (err, editService) => {
+        res.render('edit.ejs', {
+            services : editService
+        });
+    });
+});
 
-// //INDEX
+//INDEX
 
-// app.get('/spongebob', (req, res) => {
-//   Data.find({}, (error, allSponge) => {
-//          res.render('index.ejs', {
-//              data: allSponge
-//          });
-//      })
-//  });
+servicesRouter.get('/services', (req, res) => {
+  Data.find({}, (error, services) => {
+         res.render('appointments.ejs', {
+             services: allServices
+         });
+     })
+ });
 
-//  //NEW
-//  app.get('/spongebob/new', (req, res) => {
-//      res.render('new.ejs');
-//  })
-
-
-// //SHOW
-//  app.get('/spongebob/:id', (req, res) => {
-//  Data.findById(req.params.id, (error, character) => {
-//      res.render('show.ejs',
-//      {list: character})
-//  })
-//  })
-
-// //POST
-// app.post('/spongebob', (req, res) => {
-//   Data.create(req.body, (error, createdBottom) => {
-//     res.redirect('/spongebob')
-//   })
-// })
-
-//  // UPDATE => PUT
-//  app.put('/spongebob/:id', (req, res)=>{
-//      Data.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-//          // console.log(req.body)
-//          // res.send(updatedModel);
-//          res.redirect('/spongebob');
-//      });
-//  });
+ //NEW
+ servicesRouter.get('/services/new', (req, res) => {
+     res.render('appointments.ejs');
+ })
 
 
-//  // DESTROY => DELETE
-//  app.delete('/spongebob/:id', (req, res) => {
-//      Data.findByIdAndRemove(req.params.id, (err, data)=> {
-//          res.redirect('/Spongebob');
-//      });
-//  });
+//SHOW
+ servicesRouter.get('/services/:id', (req, res) => {
+ Data.findById(req.params.id, (error, character) => {
+     res.render('checkOrder.ejs',
+     {list: character})
+ })
+ })
+
+//POST
+servicesRouter.post('/services', (req, res) => {
+  Data.create(req.body, (error, createdService) => {
+    res.redirect('/services')
+  })
+})
+
+ // UPDATE => PUT
+ servicesRouter.put('/services/:id', (req, res)=>{
+     Data.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedAppointment)=>{
+         // console.log(req.body)
+         // res.send(updatedModel);
+         res.redirect('/appointments');
+     });
+ });
 
 
-module.exports = servicesRouter
+ // DESTROY => DELETE
+ servicesRouter.delete('/services/:id', (req, res) => {
+     Data.findByIdAndRemove(req.params.id, (err, data)=> {
+         res.redirect('/services');
+     });
+ });
+
+
+module.exports = servicesRouter;
