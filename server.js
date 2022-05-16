@@ -15,9 +15,9 @@ const PORT = process.env.PORT || 3003;
 
 /////
 //Schemas and Seeds
-
+const servicesSchema = require('./models/services.js')
+const productsSchema = require('./models/products.js')
 const servicesSeed = require('./models/servicesSeed')
-
 const productsSeed = require('./models/productsSeed')
 const productRoutes = require('./routes/productRoutes')
 const serviceRoutes = require('./routes/serviceRoutes')
@@ -52,43 +52,45 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
+//routers
+app.use(serviceRoutes)
+app.use(productRoutes)
 
 //___________________
 // Routes
 //___________________
 //localhost:3000
 
-app.use(serviceRoutes)
-app.use(productRoutes)
 
-//products routes
-//route shops to sub pages, route sub pages to checkout, make checkout delete things
+//index and event routes
 app.get('/' , (req, res) => {
   res.render('index.ejs',{
     tabTitle:"Home"
   })
 });
 
-app.get('/views/appointments', (req,res)=>{
-  res.render('appointments.ejs', {
-    tabTitle: "Appointments"
+app.get('/events', (req,res)=>{
+  res.render('events.ejs', {
+    tabTitle: "Events"
   })
 });
 
 
-//services routes
-app.get('/services/appointments', (req,res)=>{
-  res.render('appointments.ejs')
-})
-
-app.get('/services/checkOrder', (req,res)=>{
-  res.render('checkOrder.ejs')
-})
-
-
 //other routes
 
+app.get('/servicesSeed', (req,res) => {
+  servicesSchema.create(servicesSeed, (err, createData) => {
+      console.log('seed data registered!')
+  })
+  res.redirect('/')
+})
 
+app.get('/ProductsSeed', (req,res) => {
+  productsSchema.create(productsSeed, (err, createData) => {
+      console.log('seed data registered!')
+  })
+  res.redirect('/')
+})
 
 //___________________
 //Listener

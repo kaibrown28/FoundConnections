@@ -14,11 +14,27 @@ servicesRouter.get('/services/:id/edit', (req, res) => {
 
 //INDEX
 
-servicesRouter.get('/services', (req, res) => {
-  services.find({}, (error, services) => {
+servicesRouter.get('/appointments', (req, res) => {
+  services.find({}, (error, allServices) => {
          res.render('appointments.ejs', {
              services: allServices,
              tabTitle: "Make an Appointment",
+         });
+     })
+ });
+servicesRouter.get('/checkOrder', (req, res) => {
+  services.find({}, (error, checkOrder) => {
+         res.render('checkorder.ejs', {
+             services: checkOrder,
+             tabTitle: "Check an Order",
+         });
+     })
+ });
+servicesRouter.get('/editService', (req, res) => {
+  services.find({}, (error, editService) => {
+         res.render('editService.ejs', {
+             services: editService,
+             tabTitle: "Change an Appointment",
          });
      })
  });

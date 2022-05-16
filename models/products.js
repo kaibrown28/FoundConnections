@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
-const productsSchema = new Schema({
-    name:{type:String, required:true},
-    description:{type:String, required:true},
+const productsSchema = new Schema(
+    {
+    company:{type:String, required:true},
+    console: {type:String, required:true},
+    product:{type:String, required:true},
     inStock: Boolean,
     quantity: Number,
     img: String,
-    
-},
+    inCart: Boolean,
+    },
 )
 
 const products = mongoose.model('products', productsSchema)

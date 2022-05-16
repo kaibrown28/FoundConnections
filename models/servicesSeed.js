@@ -15,7 +15,7 @@ const servicesSeed = [
     date: "06/22/22",
     time: "2:00 PM",
     confirmationCode: "S3285",
-    details:{},
+    details:"",
     },
 ]
 

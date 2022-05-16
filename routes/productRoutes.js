@@ -15,9 +15,9 @@ productsRouter.get('/products/:id/edit', (req, res) => {
 
 //INDEX
 
-productsRouter.get('/products', (req, res) => {
+productsRouter.get('/shop', (req, res) => {
   products.find({}, (error, allProducts) => {
-         res.render('showProducts.ejs', {
+         res.render('shop.ejs', {
              products: allProducts,
              tabTitle: "All Products"
          });
@@ -26,34 +26,50 @@ productsRouter.get('/products', (req, res) => {
 
  //SHOP ROUTES
 productsRouter.get('/atari', (req, res) => {
-  products.find({}, (error, atariProducts) => {
+  products.find({company: "Atari"}, (error, atariProducts) => {
          res.render('atari.ejs', {
              products: atariProducts,
-             tabTitle: "Atari"
+             tabTitle: "Shop Atari"
          });
      })
  });
 productsRouter.get('/nintendo', (req, res) => {
-  products.find({}, (error, nintendoProducts) => {
+  products.find({company: "Nintendo"}, (error, nintendoProducts) => {
          res.render('nintendo.ejs', {
              products: nintendoProducts,
-             tabTitle: "Nintendo"
+             tabTitle: "Shop Nintendo"
          });
      })
  });
 productsRouter.get('/sega', (req, res) => {
-  products.find({}, (error, segaProducts) => {
+  products.find({company:"Sega"}, (error, segaProducts) => {
          res.render('sega.ejs', {
              products: segaProducts,
-             tabTitle: "Sega"
+             tabTitle: "Shop Sega"
          });
      })
  });
 productsRouter.get('/sony', (req, res) => {
-  products.find({}, (error, sonyProducts) => {
+  products.find({company: "Sony"}, (error, sonyProducts) => {
          res.render('sony.ejs', {
              products: sonyProducts,
-             tabTitle: "Sony"
+             tabTitle: "Shop Sony"
+         });
+     })
+ });
+productsRouter.get('/cart', (req, res) => {
+  products.find({}, (error, shoppingCart) => {
+         res.render('cart.ejs', {
+             products: shoppingCart,
+             tabTitle: "Shopping Cart"
+         });
+     })
+ });
+productsRouter.get('/checkout', (req, res) => {
+  products.find({}, (error, checkout) => {
+         res.render('checkout.ejs', {
+             products: checkout,
+             tabTitle: "Checkout Page"
          });
      })
  });
