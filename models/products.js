@@ -10,6 +10,7 @@ const productsSchema = new Schema(
     quantity: Number,
     img: String,
     inCart: Boolean,
+    price: String,
     },
 )
 
