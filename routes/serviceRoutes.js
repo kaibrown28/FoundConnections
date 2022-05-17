@@ -6,7 +6,7 @@ const services = require('../models/services')
 // EDIT => GET
 servicesRouter.get('/services/:id/edit', (req, res) => {
     services.findById(req.params.id, (err, editService) => {
-        res.render('edit.ejs', {
+        res.render('editServices.ejs', {
             services : editService
         });
     });
@@ -40,7 +40,7 @@ servicesRouter.get('/editService', (req, res) => {
  });
 
  //NEW
- servicesRouter.get('/services/new', (req, res) => {
+ servicesRouter.get('appointments', (req, res) => {
      res.render('appointments.ejs');
  })
 
@@ -56,7 +56,7 @@ servicesRouter.get('/editService', (req, res) => {
 //POST
 servicesRouter.post('/services', (req, res) => {
   services.create(req.body, (error, createdService) => {
-    res.redirect('/services')
+    res.redirect('/appointments')
   })
 })
 

@@ -6,16 +6,33 @@
     <%- include ('./partials/nav.ejs') %>
 
     <h1>Create an Appointment</h1>
-    <form action="/spongebob" method="POST">
-        name: <input type="text" name="name" /><br/><br/>
-        job: <input type="text" name="job" /><br/><br/>
-        img: <input type="text" name="img" /><br/><br/>
-        hobbies: <input type="text" name="hobbies" /><br/><br/>
-        species: <input type="text" name="species" /><br/><br/>
-        <input type="submit" value="Add Character"/>
+    <form action="/" method="POST">
+        Name: <input type="text" name="name" placeholder="Samus Aran"/><br/><br/>
+        store: <select name="store" id="storeLocation">
+                <option value="Boston, MA">Boston, MA</option>
+                <option value="Plano, TX">Plano, TX</option>
+                <option value="Seattle, WA">Seattle, WA</option>
+                <option value="Orlando, FL">Orlando, FL</option>
+                <option value="New York, NY">New York, NY</option>
+                <option value="Raleigh, NC">Raleigh, NC</option>
+                <option value="Austin, TX">Austin, TX</option>
+                <option value="Los Angeles, CA">Los Angeles, CA</option>
+                <option value="Los Vegas, NV">Los Vegas, NV</option>
+                <option value="Atlanta, GA">Atlanta, GA</option>
+                <option value="online">Remote (Streaming Consults only)</option>
+                </select>
+            <br/><br/>
+        service: <select name="service" id="serviceType">
+            <option value="Cable Testing">Cable Testing</option>
+            <option value="Streaming Consultation">Streaming Consulation</option>
+            </select>
+            <br/><br/>
+        time: Appointment hours are from 9:00 AM - 5:30 PM, local time. <input type="datetime-local" name="time" min="9:00" max="17:30" step="900" required/> 
+        <br/><br/>
+        <button type="submit" href="/" > Create an Appointment</button> 
     </form>
-    <form action="/spongebob" method="GET">
-    <button type="submit" href="/spongebob" > Bikini Bottom</button> 
+    <form action="/" method="GET">
+    <button type="submit" href="/" > Return to Home</button> 
     </form>
 
     <%- include ('./partials/footer.ejs') %>
