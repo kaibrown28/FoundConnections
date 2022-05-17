@@ -4,6 +4,20 @@
 <body>
     <%- include ('./partials/header.ejs') %>
     <%- include ('./partials/nav.ejs') %>
+
+    <h1>Create an Appointment</h1>
+    <form action="/spongebob" method="POST">
+        name: <input type="text" name="name" /><br/><br/>
+        job: <input type="text" name="job" /><br/><br/>
+        img: <input type="text" name="img" /><br/><br/>
+        hobbies: <input type="text" name="hobbies" /><br/><br/>
+        species: <input type="text" name="species" /><br/><br/>
+        <input type="submit" value="Add Character"/>
+    </form>
+    <form action="/spongebob" method="GET">
+    <button type="submit" href="/spongebob" > Bikini Bottom</button> 
+    </form>
+
     <%- include ('./partials/footer.ejs') %>
 </body>
 </html>

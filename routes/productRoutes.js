@@ -6,7 +6,7 @@ const products = require('../models/products')
 // EDIT => GET
 productsRouter.get('/products/:id/edit', (req, res) => {
     products.findById(req.params.id, (err, allProducts) => {
-        res.render('edit.ejs', {
+        res.render('editService.ejs', {
             products : allProducts,
             tabTitle: "Edit an Appointment"
         });
@@ -76,42 +76,42 @@ productsRouter.get('/checkout', (req, res) => {
 
 
  //NEW
- productsRouter.get('/products/new', (req, res) => {
-     res.render('new.ejs');
- })
+//  productsRouter.get('/products/new', (req, res) => {
+//      res.render('new.ejs');
+//  })
 
 
 //SHOW
- productsRouter.get('/products/:id', (req, res) => {
- products.findById(req.params.id, (error, character) => {
-     res.render('showProducts.ejs',
-     {list: character})
- })
- })
+//  productsRouter.get('/products/:id', (req, res) => {
+//  products.findById(req.params.id, (error, character) => {
+//      res.render('showProducts.ejs',
+//      {list: character})
+//  })
+//  })
 
 //POST
-productsRouter.post('/products', (req, res) => {
-  products.create(req.body, (error, createdBottom) => {
-    res.redirect('/products')
-  })
-})
+// productsRouter.post('/products', (req, res) => {
+//   products.create(req.body, (error, createdBottom) => {
+//     res.redirect('/products')
+//   })
+// })
 
  // UPDATE => PUT
- productsRouter.put('/products/:id', (req, res)=>{
-     products.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-         // console.log(req.body)
-         // res.send(updatedModel);
-         res.redirect('/products');
-     });
- });
+//  productsRouter.put('/products/:id', (req, res)=>{
+//      products.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+//          // console.log(req.body)
+//          // res.send(updatedModel);
+//          res.redirect('/products');
+//      });
+//  });
 
 
  // DESTROY => DELETE
- productsRouter.delete('/products/:id', (req, res) => {
-     products.findByIdAndRemove(req.params.id, (err, products)=> {
-         res.redirect('/products');
-     });
- });
+//  productsRouter.delete('/products/:id', (req, res) => {
+//      products.findByIdAndRemove(req.params.id, (err, products)=> {
+//          res.redirect('/products');
+//      });
+//  });
 
 
 

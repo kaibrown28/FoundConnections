@@ -76,21 +76,21 @@ app.get('/events', (req,res)=>{
 });
 
 
-//other routes
+//SEEDS
 
-app.get('/servicesSeed', (req,res) => {
-  servicesSchema.create(servicesSeed, (err, createData) => {
-      console.log('seed data registered!')
-  })
-  res.redirect('/')
-})
+// app.get('/servicesSeed', (req,res) => {
+//   servicesSchema.create(servicesSeed, (err, createData) => {
+//       console.log('seed data registered!')
+//   })
+//   res.redirect('/')
+// })
 
-app.get('/ProductsSeed', (req,res) => {
-  productsSchema.create(productsSeed, (err, createData) => {
-      console.log('seed data registered!')
-  })
-  res.redirect('/')
-})
+// app.get('/ProductsSeed', (req,res) => {
+//   productsSchema.create(productsSeed, (err, createData) => {
+//       console.log('seed data registered!')
+//   })
+//   res.redirect('/')
+// })
 
 //___________________
 //Listener
