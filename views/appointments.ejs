@@ -34,26 +34,9 @@
         <br/><br/>
       
             <input type="submit" value="Create An Appointment" /> 
-        
-        </form>
-        
-        <form action="/<%=services.id%>/editService" method="GET">
-            <div class="buttons">
-                <input type="submit" value="Change Appointment Details"/>
-            </form>
-            <form action="/<%=services.id; %>?_method=DELETE" method="POST">
-                <button type="submit" value="DELETE"> Cancel This Appointment </button>
-            </form>
+        </form>  
             </div>
        
-         
-         <% for (let i = 0; i < services.length; i++) { %>
-            <div class="services-container">
-                <h3><%=services[i].service%></h3>
-                <h3><%=services[i].id%></h3>
-                <a href="/<%=services[i].id%>/editservice"><%=services[i].id%></a>
-            </div>
-            <% } %>
     <%- include ('./partials/footer.ejs') %>
 </body>
 </html>

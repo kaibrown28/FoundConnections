@@ -14,13 +14,15 @@
             <h3> In Stock: <%=products.inStock%> | Quantity: <%=products.quantity%></h3>
         </div>
         <div class="shopButtons">
-            <form action="/products/<%=products._id%>/cart" method="POST">
+            <form action="/cart/<%=products._id%>/" method="POST">
                 <select name="quantity">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
-                <button type="submit" href="/cart.ejs" > Add to Cart </button>
+                <form action="/cart" method="POST">
+                    <button type="submit" class="button is-primary">Add to Cart</button>
+                </form>
             </form>
             <form action="/" method="GET">
                 <button type="submit" href="/" > Back to Home</button>

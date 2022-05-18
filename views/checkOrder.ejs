@@ -4,6 +4,23 @@
 <body>
     <%- include ('./partials/header.ejs') %>
     <%- include ('./partials/nav.ejs') %>
+
+    <div class="scheduled">
+        <h2>Scheduled Appointments</h2>
+        <% for (let i = 0; i < services.length; i++) { %>
+           <div class="services-container">
+            <h3><%=services[i].name%></h3>   
+            <h3><%=services[i].store%></h3>
+            <h3><%=services[i].service%></h3>
+            <a href="/<%=services[i].id%>/editservice">Edit Your Appointment</a>
+           </div>
+           <% } %>
+
+            <!-- <form action="/<services[i].id/editservice?_method=PUT" method="POST">
+          <input type="submit" value="Change Appointment Details"/>
+        </form> -->
+        <a href="/<%=services.id%>/editservice">Edit </a>
+       </div>   
     <%- include ('./partials/footer.ejs') %>
 </body>
 </html>

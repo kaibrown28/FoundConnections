@@ -19,9 +19,11 @@ const servicesSchema = require('./models/services.js')
 const productsSchema = require('./models/products.js')
 const servicesSeed = require('./models/servicesSeed')
 const productsSeed = require('./models/productsSeed')
-const productRoutes = require('./routes/productRoutes')
-// const serviceRoutes = require('./routes/serviceRoutes')
+const productRoutes = require('./controllers/productRoutes')
+const serviceRoutes = require('./controllers/serviceRoutes')
+const cartRoutes = require('./controllers/cartRoutes')
 const services = require('./models/services')
+const cart = require('./models/cart.js')
 
 //___________________
 //Database
@@ -54,14 +56,14 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 //routers
-// app.use(serviceRoutes)
+app.use(serviceRoutes)
 app.use(productRoutes)
+app.use(cartRoutes)
 
 //___________________
 // Routes
 //___________________
 //localhost:3000
-
 
 //index and event routes
 app.get('/' , (req, res) => {
@@ -75,81 +77,33 @@ app.get('/events', (req,res)=>{
     tabTitle: "Events"
   })
 });
-app.get('/appointments', (req, res) => {
-  services.find({}, (error, allServices) => {
-         res.render('appointments.ejs', {
-             services: allServices,
-             tabTitle: "Make an Appointment",
-         });
-     })
-  });
-
-
-
-// EDIT => GET
-app.get('/:id/editService', (req, res) => {
-  services.findById(req.params.id, (err, editService) => {
-      res.render('editService.ejs', {
-          services : editService,
-          tabTitle: "Change Appointment"
-      });
-  });
-});
-
-//INDEX
-
-
-app.get('/checkOrder', (req, res) => {
-services.find({}, (error, checkOrder) => {
-       res.render('checkorder.ejs', {
-           services: checkOrder,
-           tabTitle: "Check an Order",
-       });
-   })
-});
-app.get('/editService', (req, res) => {
-services.find({}, (error, editService) => {
-       res.render('editService.ejs', {
-           services: editService,
-           tabTitle: "Change an Appointment",
-       });
-   })
-});
-
-//NEW
-app.get('/appointments', (req, res) => {
-   res.render('appointments.ejs');
-})
-
-//SHOW
-app.get('/services/:id', (req, res) => {
-services.findById(req.params.id, (error, services) => {
-   res.render('checkOrder.ejs',
-   {services: services})
-})
-})
-
-//CREATE
-app.post('/', (req, res) => {
-  servicesSchema.create(req.body, (error, createdService) => {
-    res.redirect('/')
+app.get('/stores', (req,res)=>{
+  res.render('stores.ejs', {
+    tabTitle: "Stores"
   })
-})
-
-// UPDATE => PUT
-app.put('/:id', (req, res)=>{
-   servicesSchema.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedAppointment)=>{     
-       res.redirect('/');
-   });
 });
 
 
-// DESTROY => DELETE
-app.delete('/:id', (req, res) => {
-   services.findByIdAndRemove(req.params.id, (err, services)=> {
-       res.redirect('/');
-   });
-});
+
+// //SHOW
+// app.get('/services/:id', (req, res) => {
+// services.findById(req.params.id, (error, services) => {
+//    res.render('checkOrder.ejs',
+//    {services: services})
+// })
+// })
+
+
+
+// // UPDATE => PUT
+// app.put('/:id', (req, res)=>{
+//    servicesSchema.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedAppointment)=>{     
+//        res.send(updatedAppointment);
+//    });
+// });
+
+
+
 
 //SEEDS
 

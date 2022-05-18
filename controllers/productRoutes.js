@@ -1,18 +1,14 @@
 const express =  require('express')
 const productsRouter = express.Router();
 const products = require('../models/products')
-
+const cart = require('../models/cart');
 
 // EDIT => GET
-productsRouter.get('/products/:id/edit', (req, res) => {
-    products.findById(req.params.id, (err, allProducts) => {
-        res.render('editService.ejs', {
-            products : allProducts,
-            tabTitle: "Edit an Appointment"
-        });
-    });
-});
-
+productsRouter.post('/', (req, res) => {
+    servicesSchema.create(req.body, (error, createdService) => {
+      res.redirect('/')
+    })
+  })
 //INDEX
 
 productsRouter.get('/shop', (req, res) => {
@@ -89,20 +85,38 @@ productsRouter.get('/checkout', (req, res) => {
         tabTitle: "Shop Item"})
  })
  })
+ productsRouter.get('/cart/:id', (req, res) => {
+     var cart = new cart(req.session.cart ? req.session.cart : {products:product})
+ products.findById(req.params.id, (error, product) => {
+     
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    res.redirect('shop.ejs',
+     
+        {tabTitle: "Shop Item"})
+ })
+ })
+//  productsRouter.get('/cart/:id', (req, res) => {
+//  products.findById(req.params.id, (error, product) => {
+//      res.render('showProduct.ejs',
+//      {  products: product,
+//         tabTitle: "Shop Item"})
+//  })
+//  })
 
 // POST
-productsRouter.post('/products', (req, res) => {
-  products.create(req.body, (error, addToCart) => {
-    res.redirect('/cart')
+productsRouter.post('/cart', (req, res) => {
+  cart.create(req.body, (error, addToCart) => {
+    res.redirect('/shop')
   })
 })
 
  // UPDATE => PUT
- productsRouter.put('/products/:id', (req, res)=>{
-     products.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+ productsRouter.put('/:id', (req, res)=>{
+     products.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, uddToCart)=>{
          // console.log(req.body)
          // res.send(updatedModel);
-         res.redirect('/products');
+         res.redirect('/cart');
      });
  });
 

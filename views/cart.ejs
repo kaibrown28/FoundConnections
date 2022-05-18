@@ -4,7 +4,15 @@
 <body>
     <%- include ('./partials/header.ejs') %>
     <%- include ('./partials/nav.ejs') %>
-
+    <div id="showProduct">
+        <img src="<%=products.img%>"/>
+        <div class="itemDescription">
+            <h3> <%=products.items%></h3>
+            <h4><%=products.description%></h3>
+            <h4>Price: $<%=products.price%></h3>
+            <h3> Quantity: <%=products.quantity%></h3>
+            <h3>Subtotal: <%=products.quantity* products.price%></h3>
+        </div>
     <%- include ('./partials/footer.ejs') %>
 </body>
 </html>
