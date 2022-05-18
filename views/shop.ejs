@@ -61,19 +61,14 @@
 </div> -->
 
 <% for (let i = 0; i < products.length; i++) { %>
+   <div class="product-container">
     <li>
       <a href="/index/<%=products[i]._id%>">
          <h3><%=products[i].console%> | <%=products[i].product%></h3>
          <img src="<%=products[i].img%>">
         </a>
-     <div class="buttons">
-       <form action="/index/<%=products[i]._id%>/edit" method="GET">
-         <button type="submit" href="/index/<%=products[i]._id%>/edit" > EDIT</button>
-       </form>
-       <form action="/index/<%=products[i].id; %>?_method=DELETE" method="POST">
-        <input type="submit" value="DELETE"/>
-      </form>
-    </div>
+    </div>    
+   
     </li>
 <% } %>
     <%- include ('./partials/footer.ejs') %>

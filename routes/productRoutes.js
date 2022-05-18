@@ -81,33 +81,34 @@ productsRouter.get('/checkout', (req, res) => {
 //  })
 
 
-//SHOW
-//  productsRouter.get('/products/:id', (req, res) => {
-//  products.findById(req.params.id, (error, character) => {
-//      res.render('showProducts.ejs',
-//      {list: character})
-//  })
-//  })
+// SHOW
+ productsRouter.get('/index/:id', (req, res) => {
+ products.findById(req.params.id, (error, product) => {
+     res.render('showProduct.ejs',
+     {  products: product,
+        tabTitle: "Shop Item"})
+ })
+ })
 
-//POST
-// productsRouter.post('/products', (req, res) => {
-//   products.create(req.body, (error, createdBottom) => {
-//     res.redirect('/products')
-//   })
-// })
+// POST
+productsRouter.post('/products', (req, res) => {
+  products.create(req.body, (error, addToCart) => {
+    res.redirect('/cart')
+  })
+})
 
  // UPDATE => PUT
-//  productsRouter.put('/products/:id', (req, res)=>{
-//      products.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-//          // console.log(req.body)
-//          // res.send(updatedModel);
-//          res.redirect('/products');
-//      });
-//  });
+ productsRouter.put('/products/:id', (req, res)=>{
+     products.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+         // console.log(req.body)
+         // res.send(updatedModel);
+         res.redirect('/products');
+     });
+ });
 
 
- // DESTROY => DELETE
-//  productsRouter.delete('/products/:id', (req, res) => {
+//  DESTROY => DELETE
+//  productsRouter.delete('/:id', (req, res) => {
 //      products.findByIdAndRemove(req.params.id, (err, products)=> {
 //          res.redirect('/products');
 //      });

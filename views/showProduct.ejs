@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ('./partials/head.ejs') %>
+<body>
+    <%- include ('./partials/header.ejs') %>
+    <%- include ('./partials/nav.ejs') %>
+
+    <div id="showProduct">
+        <img src="<%=products.img%>"/>
+        <div class="itemDescription">
+            <h3> <%=products.company%> : <%=products.console%></h3>
+            <h4><%=products.description%></h3>
+            <h4>Price: $<%=products.price%></h3>
+            <h3> In Stock: <%=products.inStock%> | Quantity: <%=products.quantity%></h3>
+        </div>
+        <div class="shopButtons">
+            <form action="/products/<%=products._id%>/cart" method="POST">
+                <select name="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <button type="submit" href="/cart.ejs" > Add to Cart </button>
+            </form>
+            <form action="/" method="GET">
+                <button type="submit" href="/" > Back to Home</button>
+            </form>
+        </div>  
+    </div>
+    <%- include ('./partials/footer.ejs') %>
+
+</body>
+</html>

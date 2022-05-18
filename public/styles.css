@@ -1,16 +1,55 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand:regular);
+@import url(https://fonts.googleapis.com/css?family=Grape+Nuts:regular);
+@import url(https://fonts.googleapis.com/css?family=Mali:200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic);
 
-
+*{
+    font-family: "Mali", sans-serif;
+}
 a{
     text-decoration: none;
     color:white;
     font-weight: bold;
 }
 
+a:hover{
+    color:yellow;
+}
+
+a:visited{
+    color:white;
+}
+
 li{
     list-style:none;
 }
+li a{
+    color:black;
+}
 
+li a:hover{
+    color:white;
+}
 nav{
     background-color: rgba(230,0,19,1)
+}
+
+button{
+    background-color: rgba(65,186,229,1)
+}
+
+img{
+    height: 5em;
+    width: 5em;
+    border: .1em double rgba(230,0,19,1);
+
+}
+
+.product-container {
+    border: 1px solid black;
+    display: flex;
+}
+
+.shopbuttons{
+    display: inline;
 }

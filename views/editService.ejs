@@ -4,6 +4,41 @@
 <body>
     <%- include ('./partials/header.ejs') %>
     <%- include ('./partials/nav.ejs') %>
+
+    Name: <input type="text" name="name" placeholder="Samus Aran"/><br/><br/>
+    store: <select name="store" id="storeLocation">
+            <option value="Boston, MA">Boston, MA</option>
+            <option value="Plano, TX">Plano, TX</option>
+            <option value="Seattle, WA">Seattle, WA</option>
+            <option value="Orlando, FL">Orlando, FL</option>
+            <option value="New York, NY">New York, NY</option>
+            <option value="Raleigh, NC">Raleigh, NC</option>
+            <option value="Austin, TX">Austin, TX</option>
+            <option value="Los Angeles, CA">Los Angeles, CA</option>
+            <option value="Los Vegas, NV">Los Vegas, NV</option>
+            <option value="Atlanta, GA">Atlanta, GA</option>
+            <option value="online">Remote (Streaming Consults only)</option>
+            </select>
+        <br/><br/>
+    service: <select name="service" id="serviceType">
+        <option value="Cable Testing">Cable Testing</option>
+        <option value="Streaming Consultation">Streaming Consulation</option>
+        </select>
+        </form>
+        <br/><br/>
+    Date:<input type="date" name="date"> 
+        <br/><br/>
+    time: Appointment hours are from 9:00 AM - 5:30 PM, local time. <input type="time" name="time" min="9:00" max="17:30" step="900"> 
+    <br/><br/>
+    <div class="buttons">
+       
+        <form action="/<%=services.id%>?_method=PUT" method="POST">
+          <input type="submit" value="Change Appointment Details"/>
+        </form>
+        <form action="/<%=services._id; %>?_method=DELETE" method="POST">
+         <button type="submit" value="DELETE"> Cancel This Appointment </button>
+       </form>
+     </div>
     <%- include ('./partials/footer.ejs') %>
 </body>
 </html>

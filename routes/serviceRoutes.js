@@ -3,10 +3,18 @@ const express =  require('express')
 const servicesRouter = express.Router();
 const services = require('../models/services')
 
+
+//CREATE
+servicesRouter.post('/appointments/', (req, res) => {
+    services.create(req.body, (error, createdService) => {
+      res.send(createdService)
+    })
+  })
+
 // EDIT => GET
-servicesRouter.get('/services/:id/edit', (req, res) => {
+servicesRouter.get('/:id/edit', (req, res) => {
     services.findById(req.params.id, (err, editService) => {
-        res.render('editServices.ejs', {
+        res.render('editService.ejs', {
             services : editService
         });
     });
@@ -40,40 +48,34 @@ servicesRouter.get('/editService', (req, res) => {
  });
 
  //NEW
- servicesRouter.get('appointments', (req, res) => {
+ servicesRouter.get('/appointments', (req, res) => {
      res.render('appointments.ejs');
  })
 
-
 //SHOW
- servicesRouter.get('/services/:id', (req, res) => {
- services.findById(req.params.id, (error, character) => {
-     res.render('checkOrder.ejs',
-     {list: character})
+ servicesRouter.get('/:id', (req, res) => {
+ services.findById(req.params.id, (error, services) => {
+     res.render('editAppointment.ejs',
+     {services: services})
  })
  })
 
-//POST
-servicesRouter.post('/services', (req, res) => {
-  services.create(req.body, (error, createdService) => {
-    res.redirect('/appointments')
-  })
-})
+
 
  // UPDATE => PUT
- servicesRouter.put('/services/:id', (req, res)=>{
+ servicesRouter.put('/:id', (req, res)=>{
      services.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedAppointment)=>{
          // console.log(req.body)
          // res.send(updatedModel);
-         res.redirect('/appointments');
+         res.redirect('/appointments.ejs');
      });
  });
 
 
  // DESTROY => DELETE
- servicesRouter.delete('/services/:id', (req, res) => {
+ servicesRouter.delete('/:id', (req, res) => {
      services.findByIdAndRemove(req.params.id, (err, services)=> {
-         res.redirect('/services');
+         res.redirect('/');
      });
  });
 
