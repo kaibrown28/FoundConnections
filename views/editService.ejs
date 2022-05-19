@@ -6,12 +6,12 @@
     <%- include ('./partials/nav.ejs') %>
     
     <form action="/<%=services.id%>?_method=PUT" method="POST">
-        Name: 
-        <input type="text" name="name" value="<%=services.name%>"/>
+        <label class="label mx-2"> Name</label>
+        <input class="content mx-2" type="text" name="name" value="<%=services.name%>"/>
         <br/><br/>
 
-        store: 
-        <select name="store" id="storeLocation" value="<%=services.store%>">
+        <label class="label mx-2"> Location</label>  
+        <select  class="select mx-2" name="store" id="storeLocation" value="<%=services.store%>">
             <option value="Boston, MA">Boston, MA</option>
             <option value="Plano, TX">Plano, TX</option>
             <option value="Seattle, WA">Seattle, WA</option>
@@ -26,20 +26,23 @@
         </select>
         <br/><br/>
 
-        service: 
-        <select name="service" id="serviceType" value="<%=services.service%>">
+        <label class="label mx-2"> Service</label> 
+        <select lass="select mx-2" name="service" id="serviceType" value="<%=services.service%>">
             <option value="Cable Testing">Cable Testing</option>
-            <option value="Streaming Consultation">Streaming Consulation</option>
+            <option value="Streaming Consultation">Streaming Consultation</option>
         </select>
         <br/><br/>
 
-        Date:
-        <input type="date" name="date" value="<%=services.date%>"> 
+        <label class="label mx-2"> Date</label>
+        <input class="content mx-2" type="date" name="date" value="<%=services.date%>"> 
         <br/><br/>
 
-        <p>time: Appointment hours are from 9:00 AM - 5:30 PM, local time.</p>
-        <input type="time" name="time" min="9:00" max="17:30" value="<%=services.time%>"> 
+        <label class="label mx-2"> Time</label> 
+        <input  class="content mx-2"type="time" name="time" min="9:00" max="17:30" value="<%=services.time%>"> 
+        Appointment hours are from 9:00 AM - 5:30 PM, local time.
         <br/><br/>
+        <label class="label mx-2">Details</label> 
+        <textarea class="textarea mx-5" value="<%=services.details%>"></textarea>
         <button class="button is-primary" type="submit">Confirm Changes</button>
     </form>
     <form action="/<%=services._id; %>?_method=DELETE" method="POST">

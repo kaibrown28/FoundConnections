@@ -114,20 +114,20 @@ productsRouter.get('/checkout', (req, res) => {
 //  })
 
 // POST
-productsRouter.post('/cart', (req, res) => {
-  cart.create(req.body, (error, addToCart) => {
-    res.send(addToCart)
-  })
-})
+// productsRouter.post('/cart', (req, res) => {
+//   cart.create(req.body, (error, addToCart) => {
+//     res.send(addToCart)
+//   })
+// })
 
  // UPDATE => PUT
- productsRouter.put('/cart/:id', (req, res)=>{
-     products.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, uddToCart)=>{
-         // console.log(req.body)
-         // res.send(updatedModel);
-         res.redirect('/cart');
-     });
- });
+//  productsRouter.put('/cart/:id', (req, res)=>{
+//      products.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, uddToCart)=>{
+//          // console.log(req.body)
+//          // res.send(updatedModel);
+//          res.redirect('/cart');
+//      });
+//  });
 
 
 //  DESTROY => DELETE

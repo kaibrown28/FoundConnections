@@ -7,8 +7,10 @@
 
     <h1>Create an Appointment</h1>
     <form action="/" method="POST">
-        Name: <input type="text" name="name" placeholder="Samus Aran"/><br/><br/>
-        store: <select name="store" id="storeLocation">
+        <label class="label mx-2"> Name</label> 
+            <input class="content mx-2" type="text" name="name" placeholder="Samus Aran"/>
+        <label class="label mx-2"> Location</label>  
+        <select class="select mx-2" name="store" id="storeLocation">
                     <option value="Boston, MA">Boston, MA</option>
                     <option value="Plano, TX">Plano, TX</option>
                     <option value="Seattle, WA">Seattle, WA</option>
@@ -22,18 +24,23 @@
                     <option value="online">Remote (Streaming Consults only)</option>
                 </select>
             <br/><br/>
-        service: <select name="service" id="serviceType">
+            <label class="label mx-2"> Service</label> 
+        <select class="select mx-2" name="service" id="serviceType">
                     <option value="Cable Testing">Cable Testing</option>
-                    <option value="Streaming Consultation">Streaming Consulation</option>
+                    <option value="Streaming Consultation">Streaming Consultation</option>
                 </select>
             <br/><br/>
-        Date:<input type="date" name="date"> 
+            <label class="label mx-2"> Date</label> 
+            <input class="content mx-2" type="date" name="date"> 
             <br/><br/>
-        Time:<input type="time" name="time" min="9:00" max="17:30" step="900"> 
+            <label class="label mx-2">Time</label> 
+        <input class="content mx-2" type="time" name="time" min="9:00" max="17:30" step="900"> 
         Appointment hours are from 9:00 AM - 5:30 PM, local time.
         <br/><br/>
-      
-            <input type="submit" value="Create An Appointment" /> 
+        <label class="label mx-2">Details</label> 
+        <textarea class="textarea mx-5" placeholder="What console are you testing? What does your streaming set up look like? What kind of TV do you have?"></textarea>
+        <input type="submit" value="Create An Appointment" /> 
+
         </form>  
             </div>
        
