@@ -50,6 +50,17 @@ servicesRouter.get('/editService', (req, res) => {
      })
  });
 
+servicesRouter.get('/events', (req,res)=>{
+    res.render('events.ejs', {
+      tabTitle: "Events"
+    })
+  });
+  servicesRouter.get('/stores', (req,res)=>{
+    res.render('stores.ejs', {
+      tabTitle: "Stores"
+    })
+  });
+
  
  //NEW
  servicesRouter.get('/appointments', (req, res) => {

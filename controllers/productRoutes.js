@@ -1,11 +1,13 @@
 const express =  require('express')
 const productsRouter = express.Router();
 const products = require('../models/products')
-const cart = require('../models/cart');
+// const cart = require('../models/cart');
+
+
 
 // EDIT => GET
 productsRouter.post('/', (req, res) => {
-    servicesSchema.create(req.body, (error, createdService) => {
+    productsSchema.create(req.body, (error, createdService) => {
       res.redirect('/')
     })
   })
@@ -55,37 +57,38 @@ productsRouter.get('/sony', (req, res) => {
          });
      })
  });
-productsRouter.get('/cart', (req, res) => {
-  products.find({}, (error, shoppingCart) => {
-         res.render('cart.ejs', {
-             products: shoppingCart,
-             tabTitle: "Shopping Cart"
-         });
-     })
- });
-productsRouter.get('/checkout', (req, res) => {
-  products.find({}, (error, checkout) => {
-         res.render('checkout.ejs', {
-             products: checkout,
-             tabTitle: "Checkout Page"
-         });
-     })
- });
+// productsRouter.get('/cart', (req, res) => {
+//   products.find({}, (error, shoppingCart) => {
+//          res.render('cart.ejs', {
+//              products: shoppingCart,
+//              tabTitle: "Shopping Cart"
+//          });
+//      })
+//  });
+// productsRouter.get('/checkout', (req, res) => {
+//   products.find({}, (error, checkout) => {
+//          res.render('checkout.ejs', {
+//              products: checkout,
+//              tabTitle: "Checkout Page"
+//          });
+//      })
+//  });
 
 
+  // SHOW
+  productsRouter.get('/:id', (req, res) => {
+    products.findById(req.params.id, (error, showproduct) => {
+        res.render('showProduct.ejs',
+        {  products: showproduct,
+           tabTitle: "Shop Items"})
+    })
+    })
  //NEW
 //  productsRouter.get('/products/new', (req, res) => {
 //      res.render('new.ejs');
 //  })
 
- // SHOW
- productsRouter.get('/:id', (req, res) => {
-    products.findById(req.params.id, (error, product) => {
-        res.render('showProduct.ejs',
-        {  products: product,
-           tabTitle: "Shop Items"})
-    })
-    })
+
 //  productsRouter.get('/cart/:id', (req, res) => {
 //     products.findById(req.params.id, (error, addToCart) => {
 //         res.render('cart.ejs',

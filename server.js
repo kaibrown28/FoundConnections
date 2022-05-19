@@ -19,8 +19,8 @@ const servicesSchema = require('./models/services.js')
 const productsSchema = require('./models/products.js')
 const servicesSeed = require('./models/servicesSeed')
 const productsSeed = require('./models/productsSeed')
-const productRoutes = require('./controllers/productRoutes')
-const serviceRoutes = require('./controllers/serviceRoutes')
+const productRoutes = require('./controllers/productRoutes.js')
+const serviceRoutes = require('./controllers/serviceRoutes.js')
 const cartRoutes = require('./controllers/cartRoutes')
 const services = require('./models/services')
 const cart = require('./models/cart.js')
@@ -72,16 +72,7 @@ app.get('/' , (req, res) => {
   })
 });
 
-app.get('/events', (req,res)=>{
-  res.render('events.ejs', {
-    tabTitle: "Events"
-  })
-});
-app.get('/stores', (req,res)=>{
-  res.render('stores.ejs', {
-    tabTitle: "Stores"
-  })
-});
+
 
 
 
