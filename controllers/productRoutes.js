@@ -79,20 +79,20 @@ productsRouter.get('/checkout', (req, res) => {
 //  })
 
  // SHOW
- productsRouter.get('/cart/:id', (req, res) => {
+ productsRouter.get('/:id', (req, res) => {
     products.findById(req.params.id, (error, product) => {
         res.render('showProduct.ejs',
         {  products: product,
            tabTitle: "Shop Items"})
     })
     })
- productsRouter.get('/cart/:id', (req, res) => {
-    products.findById(req.params.id, (error, addToCart) => {
-        res.render('cart.ejs',
-        {  addToCart: products,
-           tabTitle: "Shopping Cart"})
-    })
-    })
+//  productsRouter.get('/cart/:id', (req, res) => {
+//     products.findById(req.params.id, (error, addToCart) => {
+//         res.render('cart.ejs',
+//         {  addToCart: products,
+//            tabTitle: "Shopping Cart"})
+//     })
+//     })
 
 //  productsRouter.get('/cart/:id', (req, res) => {
 //      var cart = new cart(req.session.cart ? req.session.cart : {products:product})
