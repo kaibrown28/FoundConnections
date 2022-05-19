@@ -8,14 +8,14 @@
     <div id="showProduct">
         <img src="<%=products.img%>"/>
         <div class="itemDescription">
-            <h3> <%=products.company%> : <%=products.console%></h3>
-            <h4><%=products.description%></h3>
+            <h3> <%=products.company%>  <%=products.console%></h3>
+            <h4><%=products.product%></h3>
             <h4>Price: $<%=products.price%></h3>
             <h3> In Stock: <%=products.inStock%> | Quantity: <%=products.quantity%></h3>
         </div>
         <div class="shopButtons">
             <form action="/cart/<%=products._id%>/" method="POST">
-                <select name="quantity">
+                <select class="dropdown" name="quantity">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -25,7 +25,7 @@
                 </form>
             </form>
             <form action="/" method="GET">
-                <button type="submit" href="/" > Back to Home</button>
+                <button class="button is-info"type="submit" href="/" > Back to Home</button>
             </form>
         </div>  
     </div>

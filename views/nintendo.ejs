@@ -4,14 +4,21 @@
 <body>
     <%- include ('./partials/header.ejs') %>
     <%- include ('./partials/nav.ejs') %>
-    <h1>Nintendo</h1>
-    <p>brief company history</p>
+    <h1 class="content is-large mx-5">Nintendo</h1>
+    <p class="content is-medium mx-5">Nintendo was founded by Fusajiro Yamaguchi in 1889, Kyoto, Japan. While it originally produced hanfuda cards, Nintendoburst onto the internation scene with the release of Donkey Kong in 1981. Nintendo has released many of the most popular and recognizable franchises to date from Mario, The Lengend Of Zelda, Pokemon and Animal Crossing. Nintendo's console business remains strong, with their most recent console, the Switch, continuing to sell well world-wide.  </p>
 
-    <div class="card1"><a href="#"><img src="" alt=""/></a></div>
-    <div class="card2"><a href="#"><img src="" alt=""/></a></div>
-    <div class="card3"><a href="#"><img src="" alt=""/></a></div>
-    <div class="card4"><a href="#"><img src="" alt=""/></a></div>
-   
+    <%for (let i =0; i < products.length; i++){ %>
+       <% if (products[i].company === "Nintendo") { %>
+        <div class ="product-cards box">
+    <a href="<%=products[i]._id%>">
+        <p><%=products[i].company%></p>
+        <p> <%=products[i].console%> </p>
+        <p><%=products[i].product%></p>
+        <img src="<%=products[i].img%>">
+    </a>
+    </div>
+    <%    } %>
+    <%   } %>
     <%- include ('./partials/footer.ejs') %>
 </body>
 </html>

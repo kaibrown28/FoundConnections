@@ -4,15 +4,21 @@
 <body>
     <%- include ('./partials/header.ejs') %>
     <%- include ('./partials/nav.ejs') %>
-    <h1>Atari</h1>
-    <p>brief company history</p>
+    <h1 class="content is-large mx-5">Atari</h1>
+    <p class="content is-medium mx-5">Founded in Sunnydale, California by Nolan Bushnell and Ted Dabney in 1972, Atari's Pong is widely recognizedc as defining properties of the nacent video game industry. Atari has since been bought by many companies and now exisits  as Atari SA in France. Recent endeavors include forays into cryptocurrency and video-game themed hotels.  </p>>
 
-    <div class="card1"><a href="#"><img src="https://m.media-amazon.com/images/I/41r0tHLlSaL._AC_UY436_FMwebp_QL65_.jpg" alt="Atari Jaguar power supply"/></a></div>
-    <div class="card2"><a href="#"><img src="https://m.media-amazon.com/images/I/41r0tHLlSaL._AC_UY436_FMwebp_QL65_.jpg" alt="Atari Jaguar display adapter"/></a></div>
-    <div class="card3"><a href="#"><img src="" alt=""/></a></div>
-    <div class="card4"><a href="#"><img src="" alt=""/></a></div>
-   
-
+    <%for (let i =0; i < products.length; i++){ %>
+        <% if (products[i].company === "Atari") { %>
+         <div class ="product-cards box">
+     <a href="<%=products[i]._id%>">
+         <p><%=products[i].company%></p>
+         <p> <%=products[i].console%> </p>
+         <p><%=products[i].product%></p>
+         <img src="<%=products[i].img%>">
+     </a>
+     </div>
+     <%    } %>
+     <%   } %>
 
     <%- include ('./partials/footer.ejs') %>
 </body>
