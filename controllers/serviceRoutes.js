@@ -35,7 +35,7 @@ servicesRouter.get('/appointments', (req, res) => {
  });
 servicesRouter.get('/checkorder', (req, res) => {
   services.find({}, (error, checkOrder) => {
-         res.render('checkorder.ejs', {
+         res.render('checkOrder.ejs', {
              services: checkOrder,
              tabTitle: "Check an Order",
          });
