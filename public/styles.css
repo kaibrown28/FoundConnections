@@ -13,11 +13,13 @@ background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox=
 } */
 
 a:hover{
-    color:yellow;
+    color:blue;
+    font-weight: bold;
 }
 
 a:visited{
     color:black;
+    font-weight:bold;
 }
 
 li{
@@ -35,8 +37,9 @@ li a:hover{
 }
 
 img{
-    height: 5em;
-    width:5em;
+    height: 8em;
+    width:8em;
+    justify-self: center;
 }
 
 
@@ -54,3 +57,14 @@ img{
 .button{
     display:inline;
 }
+
+#map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
+
+  p{
+      text-align:center;
+  }
