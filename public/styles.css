@@ -6,11 +6,6 @@
 *{
     font-family: "Mali", sans-serif;
 }
-a{
-    text-decoration: none;
-    color:black;
-    font-weight: bold;
-}
 
 a:hover{
     color:yellow;
@@ -30,30 +25,26 @@ li a{
 li a:hover{
     color:white;
 }
-nav{
+.navbar{
     background-color: rgba(230,0,19,1)
-}
-
-button{
-    background-color: rgba(65,186,229,1);
-
 }
 
 img{
     height: 5em;
-    width: 5em;
-    border: .1em double rgba(230,0,19,1);
-
+    width:5em;
 }
 
-.product-container {
-    border: 1px solid black;
-    display: flex;
-}
 
-.shopbuttons{
-    display: inline;
-}
+
 .scheduled{
     border: 1px green solid;
+}
+.product-cards{
+    display:inline-block;
+    width:fit-content;
+    padding: 1em;
+    margin: .5em
+    
+   
+
 }

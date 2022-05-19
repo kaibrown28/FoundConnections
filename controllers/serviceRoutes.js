@@ -69,7 +69,7 @@ servicesRouter.get('/editService', (req, res) => {
 
 //CREATE
 servicesRouter.post('/', (req, res) => {
-    servicesSchema.create(req.body, (error, createdService) => {
+    services.create(req.body, (error, createdService) => {
       res.redirect('/')
     })
   })

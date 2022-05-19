@@ -5,74 +5,22 @@
     <%- include ('./partials/header.ejs') %>
     <%- include ('./partials/nav.ejs') %>
 
-<!-- 
-<div class="carousel" id="sega-container">
-    <h1>Sega</h1>
-    <div class="carousel-container">
-        <div class="carousel-button" class="previous">
-
-        </div>
-         <div class="carousel-images">
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-         </div>
-         <div class="carousel-button" class="next">
-             
-         </div>
-    </div>
-</div>
-<div class="carousel" id="nintendo-container">
-    <h1>Nintendo</h1>
-    <div class="carousel-container">
-        <div class="carousel-button" class="previous">
-
-        </div>
-         <div class="carousel-images">
-
-         </div>
-         <div class="carousel-button" class="next"></div>
-    </div>
-</div>
-<div class="carousel" id="sony-container">
-    <h1>Sony</h1>
-    <div class="carousel-container">
-        <div class="carousel-button" class="previous">
-
-        </div>
-         <div class="carousel-images">
-
-         </div>
-         <div class="carousel-button" class="next"></div>
-    </div>
-</div>
-<div class="carousel" id="atari-container">
-    <h1>Atari</h1>
-    <div class="carousel-container">
-        <div class="carousel-button" class="previous">
-
-        </div>
-         <div class="carousel-images">
-
-         </div>
-         <div class="carousel-button" class="next"></div>
-    </div>
-</div> -->
-
-<% for (let i = 0; i < products.length; i++) { %>
-   <div class="product-container">
-    <li>
-      <a href="/index/<%=products[i]._id%>">
-         <h3><%=products[i].console%> | <%=products[i].product%></h3>
-         <img src="<%=products[i].img%>">
+        <%for (let i =0; i < products.length; i++){ %>
+            <div class ="product-cards box">
+        <a href="<%=products[i]._id%>">
+            <p><%=products[i].company%></p>
+            <p> <%=products[i].console%> </p>
+            <p><%=products[i].product%></p>
+            <img src="<%=products[i].img%>">
         </a>
-    </li>
-    </div> 
-    
+        </div>
+        <%   } %>
+                  
+                    
+               
 
     
-<% } %>
+
     <%- include ('./partials/footer.ejs') %>
 </body>
 </html>

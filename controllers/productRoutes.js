@@ -78,11 +78,11 @@ productsRouter.get('/checkout', (req, res) => {
 
 
 // SHOW
- productsRouter.get('/index/:id', (req, res) => {
+ productsRouter.get('/:id', (req, res) => {
  products.findById(req.params.id, (error, product) => {
      res.render('showProduct.ejs',
      {  products: product,
-        tabTitle: "Shop Item"})
+        tabTitle: "Shop Items"})
  })
  })
  productsRouter.get('/cart/:id', (req, res) => {
@@ -93,7 +93,7 @@ productsRouter.get('/checkout', (req, res) => {
     req.session.cart = cart;
     res.redirect('shop.ejs',
      
-        {tabTitle: "Shop Item"})
+        {tabTitle: "Shop Items"})
  })
  })
 //  productsRouter.get('/cart/:id', (req, res) => {
