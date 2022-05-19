@@ -20,6 +20,8 @@ productsRouter.get('/shop', (req, res) => {
      })
  });
 
+
+
  //SHOP ROUTES
 productsRouter.get('/atari', (req, res) => {
   products.find({company: "Atari"}, (error, atariProducts) => {
@@ -76,26 +78,33 @@ productsRouter.get('/checkout', (req, res) => {
 //      res.render('new.ejs');
 //  })
 
-
-// SHOW
- productsRouter.get('/:id', (req, res) => {
- products.findById(req.params.id, (error, product) => {
-     res.render('showProduct.ejs',
-     {  products: product,
-        tabTitle: "Shop Items"})
- })
- })
+ // SHOW
  productsRouter.get('/cart/:id', (req, res) => {
-     var cart = new cart(req.session.cart ? req.session.cart : {products:product})
- products.findById(req.params.id, (error, product) => {
+    products.findById(req.params.id, (error, product) => {
+        res.render('showProduct.ejs',
+        {  products: product,
+           tabTitle: "Shop Items"})
+    })
+    })
+ productsRouter.get('/cart/:id', (req, res) => {
+    products.findById(req.params.id, (error, addToCart) => {
+        res.render('cart.ejs',
+        {  addToCart: products,
+           tabTitle: "Shopping Cart"})
+    })
+    })
+
+//  productsRouter.get('/cart/:id', (req, res) => {
+//      var cart = new cart(req.session.cart ? req.session.cart : {products:product})
+//  products.findById(req.params.id, (error, product) => {
      
-    cart.add(product, product.id);
-    req.session.cart = cart;
-    res.redirect('shop.ejs',
+//     cart.add(product, product.id);
+//     req.session.cart = cart;
+//     res.redirect('shop.ejs',
      
-        {tabTitle: "Shop Items"})
- })
- })
+//         {tabTitle: "Shop Items"})
+//  })
+//  })
 //  productsRouter.get('/cart/:id', (req, res) => {
 //  products.findById(req.params.id, (error, product) => {
 //      res.render('showProduct.ejs',
@@ -107,12 +116,12 @@ productsRouter.get('/checkout', (req, res) => {
 // POST
 productsRouter.post('/cart', (req, res) => {
   cart.create(req.body, (error, addToCart) => {
-    res.redirect('/shop')
+    res.send(addToCart)
   })
 })
 
  // UPDATE => PUT
- productsRouter.put('/:id', (req, res)=>{
+ productsRouter.put('/cart/:id', (req, res)=>{
      products.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, uddToCart)=>{
          // console.log(req.body)
          // res.send(updatedModel);
